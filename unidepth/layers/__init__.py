@@ -3,7 +3,7 @@ from .convnext import CvnxtBlock
 from .attention import AttentionBlock, AttentionDecoderBlock
 from .nystrom_attention import NystromBlock
 from .positional_encoding import PositionEmbeddingSine
-from .upsample import ConvUpsample, ConvUpsampleShuffle
+from .upsample import ConvUpsample, ConvUpsampleShuffle, ConvUpsampleShuffleResidual
 from .mlp import MLP
 
 
@@ -17,5 +17,6 @@ __all__ = [
     "ConvUpsample",
     "MLP",
     "ConvUpsampleShuffle",
+    "ConvUpsampleShuffleResidual",
     "AttentionDecoderBlock",
 ]

@@ -15,7 +15,7 @@ from unidepth.layers import (
     AttentionBlock,
     NystromBlock,
     PositionEmbeddingSine,
-    ConvUpsampleShuffle,
+    ConvUpsampleShuffleResidual,
 )
 from unidepth.utils.positional_embedding import generate_fourier_features
 from unidepth.utils.geometric import generate_rays, flat_interpolate
@@ -212,7 +212,7 @@ class DepthHead(nn.Module):
             self.process_layers.append(blk_lst)
             self.rays_layers.append(nn.Linear(camera_dim + 3, hidden_dim // int(2**i)))
             self.ups.append(
-                ConvUpsampleShuffle(
+                ConvUpsampleShuffleResidual(
                     hidden_dim // int(2**i),
                     expansion=expansion,
                     kernel_size=7,
